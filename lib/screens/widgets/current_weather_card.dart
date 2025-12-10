@@ -31,18 +31,13 @@ class CurrentWeatherCard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "${nowWeather.name!}, ${nowWeather.sys!.country}",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-            ],
+          Text(
+            "${nowWeather.name!}, ${nowWeather.sys!.country}",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
           ),
 
           SizedBox(height: 8),
