@@ -1,4 +1,3 @@
-// lib/widgets/weather_detail_item.dart
 import 'package:flutter/material.dart';
 import 'package:lab6/models/weather_list.dart';
 import 'package:lab6/utils/weather_utils.dart';
@@ -25,16 +24,9 @@ class WeatherDetailItem extends StatelessWidget {
       color: index.isEven ? Colors.white : Colors.grey.shade50,
       child: Row(
         children: [
-          // Время
           _buildTimeSection(time),
-
-          // Иконка погоды
           _buildWeatherIcon(weatherType),
-
-          // Температура
           _buildTemperatureBadge(temp),
-
-          // Описание и детали
           _buildWeatherDetails(weatherDesc, forecast),
         ],
       ),
@@ -90,12 +82,6 @@ class WeatherDetailItem extends StatelessWidget {
             decoration: BoxDecoration(
               color: WeatherUtils.getTemperatureColor(temp + 273.15),
               borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: WeatherUtils.getTemperatureColor(temp + 273.15).withOpacity(0.4),
-                  blurRadius: 6,
-                ),
-              ],
             ),
             child: Text(
               "${temp.floor()}°",

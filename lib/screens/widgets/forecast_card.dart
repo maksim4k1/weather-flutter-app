@@ -42,22 +42,8 @@ class ForecastCard extends StatelessWidget {
       child: Container(
         margin: EdgeInsets.only(bottom: 10),
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.white,
-              Color(0xFFF5F7FA),
-            ],
-          ),
+          color: Colors.white,
           borderRadius: BorderRadius.circular(18),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.08),
-              blurRadius: 20,
-              offset: Offset(0, 10),
-            ),
-          ],
         ),
         child: Padding(
           padding: EdgeInsets.all(16),
@@ -89,7 +75,7 @@ class ForecastCard extends StatelessWidget {
                 ),
               ),
 
-              // Эмодзи погоды
+              // Смайлик погоды
               Container(
                 width: 50,
                 height: 50,
@@ -123,29 +109,19 @@ class ForecastCard extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                     ),
                     SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.thermostat,
-                          size: 14,
-                          color: Colors.orange[600],
-                        ),
-                        SizedBox(width: 4),
-                        Text(
-                          "$maxTempC° / $minTempC°",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey[700],
-                          ),
-                        ),
-                      ],
+                    Text(
+                      "$maxTempC° / $minTempC°",
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.grey[700],
+                      ),
                     ),
                   ],
                 ),
               ),
 
-              // Стрелка
+              // Иконка стрелки
               Container(
                 width: 36,
                 height: 36,

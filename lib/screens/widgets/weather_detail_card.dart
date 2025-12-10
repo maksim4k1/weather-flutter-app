@@ -18,7 +18,7 @@ class WeatherDetailCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.15),
+        color: Colors.white.withAlpha(50),
         borderRadius: BorderRadius.circular(20),
       ),
       child: Padding(
@@ -30,7 +30,7 @@ class WeatherDetailCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: color.withOpacity(0.5),
+                color: color.withAlpha(128),
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: Center(
@@ -54,7 +54,7 @@ class WeatherDetailCard extends StatelessWidget {
                     title.toUpperCase(),
                     style: TextStyle(
                       fontSize: 10,
-                      color: Colors.white.withOpacity(0.8),
+                      color: Colors.white.withAlpha(200),
                       fontWeight: FontWeight.w600,
                       letterSpacing: 0.5,
                     ),

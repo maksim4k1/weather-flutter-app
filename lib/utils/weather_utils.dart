@@ -30,7 +30,7 @@ class WeatherUtils {
   static Map<String, List<T>> groupWeatherByDay<T>(
       List<T> weatherList,
       int Function(T) getTimestamp,
-      ) {
+  ) {
     final Map<String, List<T>> grouped = {};
 
     for (var weather in weatherList) {

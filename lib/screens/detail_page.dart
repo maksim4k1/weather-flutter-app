@@ -16,51 +16,23 @@ class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _AppBar(),
-      body: _Body(),
-    );
-  }
-
-  AppBar _AppBar() {
-    return AppBar(
-      title: Text(
-        "${dayName}",
-        style: TextStyle(
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-          fontSize: 20,
-        ),
-      ),
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      flexibleSpace: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue.shade700,
-              Colors.lightBlue.shade400,
-            ],
+      appBar: AppBar(
+        title: Text(
+          "${dayName}",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            fontSize: 22,
           ),
         ),
+        backgroundColor: Colors.lightBlue.shade400,
       ),
+      body: _Body(),
     );
   }
 
   Widget _Body() {
     return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Colors.blue.shade50,
-            Colors.lightBlue.shade50,
-            Colors.white,
-          ],
-        ),
-      ),
       child: Column(
         children: [
           _buildWeatherStats(),
@@ -78,19 +50,16 @@ class DetailPage extends StatelessWidget {
           icon: Icons.thermostat,
           value: "${(hourlyForecasts.first.main!.temp! - 273.15).floor()}°",
           label: "Температура",
-          color: Colors.white,
         ),
         StatItem(
           icon: Icons.water_drop,
           value: "${hourlyForecasts.first.main!.humidity}%",
           label: "Влажность",
-          color: Colors.white,
         ),
         StatItem(
           icon: Icons.air,
           value: "${hourlyForecasts.first.wind?.speed?.toStringAsFixed(1) ?? '0'} м/с",
           label: "Ветер",
-          color: Colors.white,
         ),
       ],
     );

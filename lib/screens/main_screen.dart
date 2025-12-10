@@ -13,19 +13,8 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.indigo.shade700,
         elevation: 0,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Colors.indigo.shade700,
-                Colors.indigo.shade400,
-              ],
-            ),
-          ),
-        ),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -93,14 +82,13 @@ class Screen extends StatelessWidget {
           if (daysWeather != null && daysWeather.list != null) {
             forecastByDay = WeatherUtils.groupWeatherByDay(
               daysWeather.list!,
-                  (forecast) => forecast.dt!,
+              (forecast) => forecast.dt!,
             );
           }
 
           return SingleChildScrollView(
             child: Column(
               children: [
-                // Текущая погода
                 CurrentWeatherCard(
                   nowWeather: nowWeather,
                   sunriseTime: DateTime.fromMillisecondsSinceEpoch(
@@ -113,7 +101,6 @@ class Screen extends StatelessWidget {
                   getWeatherEmoji: WeatherUtils.getWeatherEmoji,
                 ),
 
-                // Прогноз на 5 дней
                 ForecastList(forecastByDay: forecastByDay),
               ],
             ),

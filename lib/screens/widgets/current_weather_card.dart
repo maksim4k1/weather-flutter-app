@@ -28,26 +28,16 @@ class CurrentWeatherCard extends StatelessWidget {
           end: Alignment.bottomRight,
           colors: [Color(0xFF667eea), Color(0xFF764ba2)],
         ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.purple.withOpacity(0.3),
-            blurRadius: 20,
-            offset: Offset(0, 10),
-          ),
-        ],
       ),
       child: Column(
         children: [
-          // Город и страна
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.location_on, color: Colors.white, size: 20),
-              SizedBox(width: 8),
               Text(
                 "${nowWeather.name!}, ${nowWeather.sys!.country}",
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -61,7 +51,7 @@ class CurrentWeatherCard extends StatelessWidget {
           Container(
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.2),
+              color: Colors.white.withAlpha(50),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Text(
@@ -79,17 +69,16 @@ class CurrentWeatherCard extends StatelessWidget {
 
           SizedBox(height: 20),
 
-          // Основная температура и иконка
+          // Температура
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Иконка погоды
               Container(
                 width: 80,
                 height: 80,
                 decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
+                  color: Colors.white.withAlpha(50),
                   shape: BoxShape.circle,
                 ),
                 child: Center(
@@ -102,7 +91,6 @@ class CurrentWeatherCard extends StatelessWidget {
 
               SizedBox(width: 20),
 
-              // Температура
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -120,7 +108,7 @@ class CurrentWeatherCard extends StatelessWidget {
                     nowWeather.weather![0].description!,
                     style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white.withOpacity(0.9),
+                      color: Colors.white,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -131,7 +119,7 @@ class CurrentWeatherCard extends StatelessWidget {
 
           SizedBox(height: 30),
 
-          // Детали погоды - красивая сетка
+          // Детали погоды
           GridView.count(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),

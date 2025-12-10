@@ -17,35 +17,18 @@ class _CityScreenState extends State<CityScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _AppBar(),
-      body: _Body(),
-    );
-  }
-
-  AppBar _AppBar() {
-    return AppBar(
-      title: Text(
-        "Выберите город",
-        style: TextStyle(
-          fontWeight: FontWeight.w600,
-          color: Colors.white,
-          fontSize: 20,
-        ),
-      ),
-      backgroundColor: Colors.transparent,
-      elevation: 0,
-      flexibleSpace: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Colors.blue.shade700,
-              Colors.lightBlue.shade400,
-            ],
+      appBar: AppBar(
+        title: Text(
+          "Выберите город",
+          style: TextStyle(
+            fontWeight: FontWeight.w600,
+            color: Colors.white,
+            fontSize: 20,
           ),
         ),
+        backgroundColor: Colors.lightBlue.shade400,
       ),
+      body: _Body(),
     );
   }
 

@@ -17,7 +17,6 @@ class ForecastList extends StatelessWidget {
       margin: EdgeInsets.only(top: 10, bottom: 30),
       child: Column(
         children: [
-          // Красивый заголовок с градиентом
           Container(
             margin: EdgeInsets.symmetric(horizontal: 10),
             padding: EdgeInsets.all(20),
@@ -31,58 +30,18 @@ class ForecastList extends StatelessWidget {
                 ],
               ),
               borderRadius: BorderRadius.all(Radius.circular(20)),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.purple.withOpacity(0.4),
-                  blurRadius: 20,
-                  offset: Offset(0, 10),
-                ),
-              ],
             ),
             child: Row(
               children: [
-                // Иконка в круге
-                Container(
-                  width: 50,
-                  height: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Icon(
-                      Icons.timeline,
-                      color: Colors.white,
-                      size: 26,
-                    ),
-                  ),
-                ),
-                SizedBox(width: 16),
-
-                // Текст
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Прогноз на ${forecastByDay.length} дней",
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.white,
-                          letterSpacing: 0.5,
-                        ),
-                      ),
-                      SizedBox(height: 6),
-                      Text(
-                        "Подробный почасовой прогноз",
-                        style: TextStyle(
-                          fontSize: 14,
-                          color: Colors.white.withOpacity(0.9),
-                          fontWeight: FontWeight.w400,
-                        ),
-                      ),
-                    ],
+                  child: Text(
+                    "Прогноз на ${forecastByDay.length} дней",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                    ),
                   ),
                 ),
               ],
@@ -91,18 +50,15 @@ class ForecastList extends StatelessWidget {
 
           SizedBox(height: 20),
 
-          // Контейнер для карточек с тенью
           if (forecastByDay.isNotEmpty)
             Container(
               margin: EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                 children: [
-                  // Карточки прогноза
                   ...forecastByDay.entries.map((entry) {
                     final forecasts = entry.value;
                     final firstForecast = forecasts.first;
 
-                    // Рассчитываем мин и макс температуру
                     double minTemp = forecasts.map((f) => f.main!.temp!).reduce((a, b) => a < b ? a : b);
                     double maxTemp = forecasts.map((f) => f.main!.temp!).reduce((a, b) => a > b ? a : b);
                     final minTempC = (minTemp - 273.15).floor();
