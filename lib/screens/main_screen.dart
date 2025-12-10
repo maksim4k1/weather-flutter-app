@@ -77,7 +77,6 @@ class Screen extends StatelessWidget {
           final nowWeather = state.now_weather;
           final daysWeather = state.days_weather;
 
-          // Группируем прогноз по дням
           Map<String, List<WeatherList>> forecastByDay = {};
           if (daysWeather != null && daysWeather.list != null) {
             forecastByDay = WeatherUtils.groupWeatherByDay(
